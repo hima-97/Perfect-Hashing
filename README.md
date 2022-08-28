@@ -11,10 +11,10 @@ The project is divided in two programs:
 # Universal Hashing
 
 The analysis and performance of hash tables depend on the hash function having two fundamental properties:
-- The hash function must be computable in constant time (i.e. independent of the number of items in the hash table)
+- The hash function must be computable in constant time (i.e. independent of number of items in hash table)
 - The hash function must distribute its items uniformly among the slots
 
-Universal hash functions allow us to choose the hash function randomly in a way that the second property above is satisfied.
+Universal hash functions allow us to choose the hash function randomly in a way that the second property above is satisfied. <br />
 If we choose a hash function randomly from a universal family of hash functions, then the probability of a collision between any two distinct items is at most 1/M where M is the size of the hash table. Therefore, when adding into a table with N items, the probability of a collision at the initial point is at most N/M or the load factor.
 
 A universal hash function has the following format: H_a,b(X) = [(aX + b) mod p] mod m
@@ -58,7 +58,7 @@ There are different applications where you would know the items in advance and t
 - Another example is place names for a GPS device. Names of cities, towns, roads, etc. will not change often.
   Therefore, you can construct a perfect hash table to store these place names. Whenever the GPS device is updated, a new hash table will have to be constructed.
 
-# The Dictionary Class
+# Dictionary Class
 
 This project requires writing a hash table class called "Dictionary", which implements the following methods:
 - A constructor that takes the name of a file and a primary hash table size. This constructor should use the information in the file to construct the hash table using the
