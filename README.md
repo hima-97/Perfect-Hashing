@@ -14,7 +14,7 @@ The analysis and performance of hash tables depend on the hash function having t
 - The hash function must be computable in constant time (i.e. independent of number of items in hash table)
 - The hash function must distribute its items uniformly among the slots
 
-Universal hash functions allow us to choose the hash function randomly in a way that the second property above is satisfied. <br />
+Universal hash functions allow to choose the hash function randomly in a way that the second property above is satisfied. <br />
 If we choose a hash function randomly from a universal family of hash functions, then the probability of a collision between any two distinct items is at most 1/M where M is the size of the hash table. Therefore, when adding into a table with N items, the probability of a collision at the initial point is at most N/M or the load factor.
 
 A universal hash function has the following format: H_a,b(X) = [(aX + b) mod p] mod m
@@ -25,7 +25,7 @@ A universal hash function has the following format: H_a,b(X) = [(aX + b) mod p] 
 To hash strings, first convert the string into a number and only then use the hash function above to guarantee universality:
 - Each character of the string is interpreted as a number (i.e. ASCII), so a single string becomes just a sequence of numbers d[0]d[1]d[2]d[3]···d[t]
 - Moreover, a random constant c is picked such that 1 ≤ c ≤ (p - 1)
-- Now, you can convert the string into a number by doing G_c(str) = (d[0]c^(t) + d[1]c^(t−1) + d[2]c^(t−2) + ... + d[t]) mod p
+- You can now convert the string into a number with G_c(str) = (d[0]c^(t) + d[1]c^(t−1) + d[2]c^(t−2) + ... + d[t]) mod p
 - Note: to make sure that the arithmetic does not result in any overflows, you mod out by p at every step
 
 # Perfect Hashing
@@ -33,7 +33,7 @@ To hash strings, first convert the string into a number and only then use the ha
 Perfect hashing is hashing without collisions.
 
 If you hash N items in a table of size N^2 with a randomly chosen hash function, then the probability of not having any collisions is greater than 1/2.
-If you get a collision, then you pick another hash function and try again.
+If you get a collision, then you pick another hash function and try again. <br />
 With independent trials, the expected number of attempts you have to make to achieve 0 collisions is less than 2.
 
 Having a table of size N^2 is a big waste of memory, therefore in this perfect hashing scheme you do not hash directly to a table of size N^2.
