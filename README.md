@@ -98,6 +98,7 @@ You can run and test the first program of the project by running the following c
 
 Example: <br />
 The command `if ($?) { g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first } ; if ($?) { .\project_first dataset_1000 dictionary.txt }` will output: <br />
+
 `*** Hash24 dump ***` <br />
 `prime1 = 16890581` <br />
 `prime2 = 17027399` <br />
@@ -140,6 +141,7 @@ You can run and test the second program of the project by running the following 
 
 Example: <br />
 The command `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt  "hello, welcome, to, hanji" }` will output: <br />
+
 `hello found` <br />
 `welcome found` <br />
 `to found` <br />
