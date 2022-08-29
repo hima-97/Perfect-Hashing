@@ -39,8 +39,8 @@ With independent trials, the expected number of attempts you have to make to ach
 Having a table of size N^2 is a big waste of memory, therefore in this perfect hashing scheme you do not hash directly to a table of size N^2.
 Instead, you first hash into a primary hash table of size N and then, when there is a collision at a certain slot of this primary table, you create a secondary hash table for that slot.
 If t items collide at a certain slot of the primary hash table, then you create a secondary hash table of size t^2 and use perfect hashing to store the t items.
-This means that each secondary hash table will be constructed using a different hash function until it is collision free.
-Note: the expected number of slots used by all of the secondary hash tables is less than 2N.
+This means that each secondary hash table will be constructed using a different hash function until it is collision free. <br />
+Note: the expected number of slots used by all of the secondary hash tables is less than 2N. <br />
 Note: each secondary hash table has (i.e. stores) its own hash function, since it might be necessary to try different hash function to find one that did not result in any collisions.
 
 The perfect hashing scheme described above requires the ability to randomly pick a different hash function until no collisions occur.
