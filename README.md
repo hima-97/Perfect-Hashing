@@ -61,11 +61,11 @@ There are different applications where you would know the items in advance and t
 # Dictionary Class
 
 This project requires writing a hash table class called "Dictionary", which implements the following methods:
-- A constructor that takes the name of a file and a primary hash table size. This constructor should use the information in the file to construct the hash table using the
+- A constructor that takes the name of a file and a primary hash table size. This constructor uses the information in the file to construct the hash table using the
 perfect hashing scheme described above. <br /> This constructor cannot begin constructing secondary hash tables until all of the data have been read in.
 Therefore, construction of the hash table takes two passes. The first pass reads in each word from the file and figures out where it belongs in the primary hash table.
 The second pass looks at each slot in the primary hash table and creates a secondary hash table for each slot where this is needed.
-While constructing the hash table, this constructor should print out the following statistics:
+While constructing the hash table, this constructor prints out the following statistics:
    - A dump of the hash function used
    - Number of words read in
    - Primary hash table size
