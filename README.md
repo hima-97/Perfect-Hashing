@@ -65,7 +65,8 @@ This project requires writing a hash table class called "Dictionary", which impl
 perfect hashing scheme described above. <br /> This constructor cannot begin constructing secondary hash tables until all of the data have been read in.
 Therefore, construction of the hash table takes two passes. The first pass reads in each word from the file and figures out where it belongs in the primary hash table.
 The second pass looks at each slot in the primary hash table and creates a secondary hash table for each slot where this is needed.
-While constructing the hash table, this constructor prints out the following statistics: <br />
+While constructing the hash table, this constructor prints out the following statistics:
+
    - A dump of the hash function used
    - Number of words read in
    - Primary hash table size
@@ -74,6 +75,7 @@ While constructing the hash table, this constructor prints out the following sta
    - All the words in the primary hash table slot that has the largest number of collisions. If there is more than one such slot, pick one arbitrarily
    - For each j between 1 and 20 (inclusive), the number of secondary hash tables that tried j hash functions to find a hash function that did not result in any collisions for the secondary hash table. Only the cases where at least 2 words hashed to the same primary hash table slot are included (i.e. primary hash table slots with no collisions are excluded from the calculations)
    - The average number of hash functions tried per slot of the primary hash table that had at least 2 items (i.e. primary hash table slots with no collisions are excluded from the calculations)
+   
 - A `find()` method to query the hash table for the string word and return true if it is present in the hash table or return false otherwise.
 - A `writeToFile()` method that stores the entire dictionary class object in a file with the given filename using C++'s `write()` function from the `fstream` library.
   Note that `write()` writes the entire hash table to a file in one step. The write() method also recursively follows all references in an object and write the objects that are referenced as well. This method has O(1) time complexity.
