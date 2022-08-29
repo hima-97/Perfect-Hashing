@@ -65,7 +65,7 @@ This project requires writing a hash table class called "Dictionary", which impl
 perfect hashing scheme described above. <br /> This constructor cannot begin constructing secondary hash tables until all of the data have been read in.
 Therefore, construction of the hash table takes two passes. The first pass reads in each word from the file and figures out where it belongs in the primary hash table.
 The second pass looks at each slot in the primary hash table and creates a secondary hash table for each slot where this is needed.
-While constructing the hash table, this constructor prints out the following statistics:
+While constructing the hash table, this constructor prints out the following statistics: <br />
    - A dump of the hash function used
    - Number of words read in
    - Primary hash table size
