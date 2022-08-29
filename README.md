@@ -75,7 +75,7 @@ While constructing the hash table, this constructor prints out the following sta
    - All the words in the primary hash table slot that has the largest number of collisions. If there is more than one such slot, pick one arbitrarily
    - For each j between 1 and 20 (inclusive), the number of secondary hash tables that tried j hash functions to find a hash function that did not result in any collisions for the secondary hash table. Only the cases where at least 2 words hashed to the same primary hash table slot are included (i.e. primary hash table slots with no collisions are excluded from the calculations)
    - The average number of hash functions tried per slot of the primary hash table that had at least 2 items (i.e. primary hash table slots with no collisions are excluded from the calculations)
-   
+
 - A `find()` method to query the hash table for the string word and return true if it is present in the hash table or return false otherwise.
 - A `writeToFile()` method that stores the entire dictionary class object in a file with the given filename using C++'s `write()` function from the `fstream` library.
   Note that `write()` writes the entire hash table to a file in one step. The write() method also recursively follows all references in an object and write the objects that are referenced as well. This method has O(1) time complexity.
@@ -96,4 +96,51 @@ You can run and test the first program of the project by running the following c
 
 - Note: the `dictionary.txt` filename passed via argv[2] generates a text file that stores the entire dictionary
 
+Example:
+The command `if ($?) { g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first } ; if ($?) { .\project_first dataset_1000 dictionary.txt }` will output:
+`*** Hash24 dump ***
+prime1 = 16890581
+prime2 = 17027399
+random_a = 12275
+random_b = 32170
+random_c = 31357
+Number of words = 10000
+Table size = 10000
+Max collisions = 6
+# of primary slots with 0 words = 3694
+# of primary slots with 1 words = 3639
+# of primary slots with 2 words = 1863
+# of primary slots with 3 words = 626
+# of primary slots with 4 words = 140
+# of primary slots with 5 words = 31
+# of primary slots with 6 words = 7
+# of secondary hash tables trying 7 hash functions = 0
+# of secondary hash tables trying 8 hash functions = 0
+# of secondary hash tables trying 9 hash functions = 0
+# of secondary hash tables trying 10 hash functions = 0
+# of secondary hash tables trying 11 hash functions = 0
+# of secondary hash tables trying 12 hash functions = 0
+# of secondary hash tables trying 13 hash functions = 0
+# of secondary hash tables trying 14 hash functions = 0
+# of secondary hash tables trying 15 hash functions = 0
+# of secondary hash tables trying 16 hash functions = 0
+# of secondary hash tables trying 17 hash functions = 0
+# of secondary hash tables trying 18 hash functions = 0
+# of secondary hash tables trying 19 hash functions = 0
+# of secondary hash tables trying 20 hash functions = 0
+Average # of hash functions tried = 1.36895`
+
 You can run and test the second program of the project by running the following command:
+
+- `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt "query1, query2, query3, query4" }`
+
+- Note: replace `"query1, query2, query3, query4"` with a series of comma-separated words to check if they are in the dictionary stored in the `dictionary.txt` file
+
+- Note: the `dictionary.txt` file created from the first program is passed here via argv[1]
+
+Example:
+The command `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt  "hello, welcome, to, hanji" }` will output:
+`hello found <br />
+welcome found <br />
+to found <br />
+hanji not found`
