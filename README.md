@@ -14,7 +14,7 @@ The analysis and performance of hash tables depend on the hash function having t
 - The hash function must be computable in constant time (i.e. independent of number of items in hash table)
 - The hash function must distribute its items uniformly among the slots
 
-Universal hash functions allow to choose the hash function randomly in a way that the second property above is satisfied. <br />
+Universal hash functions allow to choose the hash function randomly so that the second property above is satisfied. <br />
 If we choose a hash function randomly from a universal family of hash functions, then the probability of a collision between any two distinct items is at most 1/M where M is the size of the hash table. Therefore, when adding into a table with N items, the probability of a collision at the initial point is at most N/M or the load factor.
 
 A universal hash function has the following format: H_a,b(X) = [(aX + b) mod p] mod m
