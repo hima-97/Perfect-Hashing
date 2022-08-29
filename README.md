@@ -49,7 +49,7 @@ Such task is accomplished through universal hashing (see related section above).
 To search for an item with this perfect hashing scheme, you have to hash twice. First, you hash the item to find its slot in the primary hash table.
 If that slot is not empty, then you find the item's slot in the secondary hash table.
 If the slot in the secondary hash table is also not empty, then you compare your item with the item in the secondary hash table.
-If there is a match then it means you have found the item you wanted, otherwise it means the item is not in the hash table.
+If there is a match then you have found the item you wanted, otherwise the item is not in the hash table.
 
 This perfect hashing scheme only works if we know all N items in advance, otherwise you cannot know how many items hash into the same slot of the primary hash table.
 There are different applications where you would know the items in advance and this perfect hashing scheme would be useful:
@@ -62,7 +62,7 @@ There are different applications where you would know the items in advance and t
 
 This project requires writing a hash table class called "Dictionary", which implements the following methods:
 - A constructor that takes the name of a file and a primary hash table size. This constructor should use the information in the file to construct the hash table using the
-perfect hashing scheme described above. This constructor cannot begin constructing secondary hash tables until all of the data have been read in.
+perfect hashing scheme described above. <br /> This constructor cannot begin constructing secondary hash tables until all of the data have been read in.
 Therefore, construction of the hash table takes two passes. The first pass reads in each word from the file and figures out where it belongs in the primary hash table.
 The second pass looks at each slot in the primary hash table and creates a secondary hash table for each slot where this is needed.
 While constructing the hash table, this constructor should print out the following statistics:
