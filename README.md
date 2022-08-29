@@ -97,38 +97,38 @@ You can run and test the first program of the project by running the following c
 - Note: the `dictionary.txt` filename passed via argv[2] generates a text file that stores the entire dictionary
 
 Example: <br />
-The command `if ($?) { g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first } ; if ($?) { .\project_first dataset_1000 dictionary.txt }` will output:
-`*** Hash24 dump ***`
-`prime1 = 16890581`
-`prime2 = 17027399`
-`random_a = 12275`
-`random_b = 32170`
-`random_c = 31357`
-`Number of words = 10000`
-`Table size = 10000`
-`Max collisions = 6`
-`# of primary slots with 0 words = 3694`
-`# of primary slots with 1 words = 3639`
-`# of primary slots with 2 words = 1863`
-`# of primary slots with 3 words = 626`
-`# of primary slots with 4 words = 140`
-`# of primary slots with 5 words = 31`
-`# of primary slots with 6 words = 7`
-`# of secondary hash tables trying 7 hash functions = 0`
-`# of secondary hash tables trying 8 hash functions = 0`
-`# of secondary hash tables trying 9 hash functions = 0`
-`# of secondary hash tables trying 10 hash functions = 0`
-`# of secondary hash tables trying 11 hash functions = 0`
-`# of secondary hash tables trying 12 hash functions = 0`
-`# of secondary hash tables trying 13 hash functions = 0`
-`# of secondary hash tables trying 14 hash functions = 0`
-`# of secondary hash tables trying 15 hash functions = 0`
-`# of secondary hash tables trying 16 hash functions = 0`
-`# of secondary hash tables trying 17 hash functions = 0`
-`# of secondary hash tables trying 18 hash functions = 0`
-`# of secondary hash tables trying 19 hash functions = 0`
-`# of secondary hash tables trying 20 hash functions = 0`
-`Average # of hash functions tried = 1.36895`
+The command `if ($?) { g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first } ; if ($?) { .\project_first dataset_1000 dictionary.txt }` will output: <br />
+`*** Hash24 dump ***` <br />
+`prime1 = 16890581` <br />
+`prime2 = 17027399` <br />
+`random_a = 12275` <br />
+`random_b = 32170` <br />
+`random_c = 31357` <br />
+`Number of words = 10000` <br />
+`Table size = 10000` <br />
+`Max collisions = 6` <br />
+`# of primary slots with 0 words = 3694` <br />
+`# of primary slots with 1 words = 3639` <br />
+`# of primary slots with 2 words = 1863` <br />
+`# of primary slots with 3 words = 626` <br />
+`# of primary slots with 4 words = 140` <br />
+`# of primary slots with 5 words = 31` <br />
+`# of primary slots with 6 words = 7` <br />
+`# of secondary hash tables trying 7 hash functions = 0` <br />
+`# of secondary hash tables trying 8 hash functions = 0` <br />
+`# of secondary hash tables trying 9 hash functions = 0` <br />
+`# of secondary hash tables trying 10 hash functions = 0` <br />
+`# of secondary hash tables trying 11 hash functions = 0` <br />
+`# of secondary hash tables trying 12 hash functions = 0` <br />
+`# of secondary hash tables trying 13 hash functions = 0` <br />
+`# of secondary hash tables trying 14 hash functions = 0` <br />
+`# of secondary hash tables trying 15 hash functions = 0` <br />
+`# of secondary hash tables trying 16 hash functions = 0` <br />
+`# of secondary hash tables trying 17 hash functions = 0` <br />
+`# of secondary hash tables trying 18 hash functions = 0` <br />
+`# of secondary hash tables trying 19 hash functions = 0` <br />
+`# of secondary hash tables trying 20 hash functions = 0` <br />
+`Average # of hash functions tried = 1.36895` <br />
 
 You can run and test the second program of the project by running the following command:
 
@@ -138,9 +138,9 @@ You can run and test the second program of the project by running the following 
 
 - Note: the `dictionary.txt` file created from the first program is passed here via argv[1]
 
-Example:
-The command `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt  "hello, welcome, to, hanji" }` will output:
-`hello found <br />
-welcome found <br />
-to found <br />
-hanji not found`
+Example: <br />
+The command `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt  "hello, welcome, to, hanji" }` will output: <br />
+`hello found` <br />
+`welcome found` <br />
+`to found` <br />
+`hanji not found` <br />
