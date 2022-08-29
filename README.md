@@ -82,7 +82,7 @@ While constructing the hash table, this constructor prints out the following sta
 - A `readFromFile()` method that reads an entire dictionary class object from the file with the given filename using C++’s `read()` function from the `fstream` library.
   Note that `readFromFile()` is a static method because you do not have dictionary object until you create one from a text file. Thus, `readFromFile()` is invoked using the dictionary class name (i.e Dictionary::readFromFile()).
 
-# Running and testing the project
+# Running and Testing the Project
 
 You can run and test the first program of the project by running the following command:
 
