@@ -22,7 +22,7 @@ A universal hash function has the following format: H_a,b(X) = [(aX + b) mod p] 
 - a, b = two random integers such that 1 ≤ a ≤ (p - 1) and 0 ≤ b ≤ (p - 1)
 - m = size of table
 
-To hash strings, first convert the string into a number and only then use the hash function above to guarantee universality:
+To hash strings, convert the string to a number and only then use the hash function above to guarantee universality:
 - Each character of the string is interpreted as a number (i.e. ASCII), so a single string becomes just a sequence of numbers d[0]d[1]d[2]d[3]···d[t]
 - Moreover, a random constant c is picked such that 1 ≤ c ≤ (p - 1)
 - You can now convert the string into a number with G_c(str) = (d[0]c^(t) + d[1]c^(t−1) + d[2]c^(t−2) + ... + d[t]) mod p
