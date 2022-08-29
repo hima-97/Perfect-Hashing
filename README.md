@@ -25,7 +25,7 @@ A universal hash function has the following format: H_a,b(X) = [(aX + b) mod p] 
 To hash strings, convert the string to a number and only then use the hash function above to guarantee universality:
 - Each character of the string is interpreted as a number (i.e. ASCII), so a single string becomes just a sequence of numbers d[0]d[1]d[2]d[3]···d[t]
 - Moreover, a random constant c is picked such that 1 ≤ c ≤ (p - 1)
-- You can now convert the string into a number with G_c(str) = (d[0]c^(t) + d[1]c^(t−1) + d[2]c^(t−2) + ... + d[t]) mod p
+- Now convert the string to a number with G_c(str) = (d[0]c^(t) + d[1]c^(t−1) + d[2]c^(t−2) + ... + d[t]) mod p
 - Note: to make sure that the arithmetic does not result in any overflows, you mod out by p at every step
 
 # Perfect Hashing
