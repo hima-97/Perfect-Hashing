@@ -6,7 +6,7 @@ This project implements a perfect hashing scheme using universal hash functions.
 
 The project is divided into two programs:
 1. **Hash Table Construction**: Reads dictionary words from a text file, creates a hash table using perfect hashing, and writes the hash table to an output file. During the creation, the program prints out various statistics about the hash table.
-2. **Hash Table Querying**: Reads the hash table from the output file of the first program and executes queries on the hash table.
+2. **Hash Table Querying**: Reads the hash table from the output file of the first program and executes queries on it.
 
 ## Universal Hashing
 
