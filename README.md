@@ -167,7 +167,6 @@ The command
 g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second
 ./project_second dictionary.txt "hello, welcome, to, hanji"
 ````
-````
 
 will output <br />
 
