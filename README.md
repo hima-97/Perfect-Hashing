@@ -11,7 +11,7 @@ The project is divided into two programs:
 ## Universal Hashing
 
 The performance of hash tables depends on two key properties of the hash function:
-- The hash function must be computable in constant time (i.e., independent of the number of items in the hash table).
+- The hash function must be computable in constant time (i.e. independent of the # of items in the hash table).
 - The hash function must distribute items uniformly among the slots.
 
 Universal hash functions allow for random selection to ensure uniform distribution. The probability of a collision between any two distinct items is at most 1/M, where M is the size of the hash table. Thus, for N items, the probability of a collision is at most N/M, or the load factor.
@@ -46,7 +46,8 @@ Applications include:
 
 ## Dictionary Class
 
-The `Dictionary` class implements a perfect hashing scheme to manage a large number of words efficiently. It includes methods for constructing, querying, and serializing the hash table.
+The `Dictionary` class implements a perfect hashing scheme to manage a large number of words efficiently.
+It includes methods for constructing, querying, and serializing the hash table.
 
 ### Methods
 
