@@ -97,12 +97,6 @@ g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first
 ./project_first [words dataset text file] dictionary.txt
 ```
 
-# Running and Testing the Project
-
-You can run and test the first program of the project by running the following command:
-
-- `if ($?) { g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first } ; if ($?) { .\project_first [words dataset text file] dictionary.txt }`
-
 - Note: replace `[words text file]` with one of the provided words dataset text files (i.e. dataset_11.txt or dataset_11.txt or dataset_11.txt)
         or you can also test your own words dataset text file following the same format
 
