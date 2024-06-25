@@ -27,6 +27,13 @@ vector<string> inputParsing(string myInput)
 
 int main(int argc, char* argv[])
 {
+	// Ensure there are enough command-line arguments
+    if (argc < 3)
+    {
+        cerr << "Usage: " << argv[0] << " <dictionary file> <query string>" << endl;
+        return 1;
+    }
+
 	// This calls the static function to read the entire "Dictionary" object from the file passed in:
 	Dictionary myDictionary2 = Dictionary::readFromFile(argv[1]); // Dictionary myDictionary2 = Dictionary::readFromFile("dictionary.txt");
 
@@ -38,29 +45,17 @@ int main(int argc, char* argv[])
 	vector<string> myWords = inputParsing(input);
 
 	// Checking if the input words are inside the hash table:
-	for (int i = 0; i < myWords.size(); i++)
-	{
-		if (myDictionary2.find(myWords[i]) == true)
-		{
-			cout << myWords[i] << " found" << endl;
-		}
-		else
-			cout << myWords[i] << " not found" << endl;
-	}
+    for (int i = 0; i < myWords.size(); i++)
+    {
+        if (myDictionary2.find(myWords[i]) == true)
+        {
+            cout << myWords[i] << " found" << endl;
+        }
+        else
+        {
+            cout << myWords[i] << " not found" << endl;
+        }
+    }
 
-	//for (int i = 0; i < myDictionary2.primaryTableSize; i++)
-	//{
-	//	//cout << myDictionary2.primaryTable[i].secondaryTableSize << " ";
-
-	//	for (int j = 0; j < myDictionary2.primaryTable[i].secondaryTableSize; j++)
-	//	{
-	//		if (myDictionary2.primaryTable[i].secondaryTable[j] != myDictionary.primaryTable[i].secondaryTable[j])
-	//		{
-	//			cout << myDictionary2.primaryTable[i].secondaryTable[j] << " ";
-	//			cout << i << " " << j;
-	//		}
-	//	}
-	//}
-
-	return 0;
+    return 0;
 }
