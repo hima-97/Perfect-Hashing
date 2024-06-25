@@ -113,7 +113,7 @@ g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first
 ./project_first dataset_1000 dictionary.txt dictionary.txt
 ````
 
-will output: <br />
+will output <br />
 
 `*** Hash24 dump ***` <br />
 `prime1 = 16890581` <br />
@@ -147,16 +147,29 @@ will output: <br />
 `# of secondary hash tables trying 20 hash functions = 0` <br />
 `Average # of hash functions tried = 1.36895` <br />
 
-You can run and test the second program of the project by running the following command:
 
-- `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt "query1, query2, query3, query4" }`
+### Second Program: Hash Table Querying
+
+Compile and run:
+```sh
+g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second
+./project_second dictionary.txt "query1, query2, query3, query4"
+```
 
 - Note: replace `"query1, query2, query3, query4"` with a series of comma-separated words to check if they are in the dictionary stored in the `dictionary.txt` file
 
 - Note: the `dictionary.txt` file created from the first program is passed here via argv[1]
 
 Example: <br />
-The command `if ($?) { g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second } ; if ($?) { .\project_second dictionary.txt  "hello, welcome, to, hanji" }` will output: <br />
+The command 
+
+```sh
+g++ Dictionary.cpp project_second.cpp Hash24.cpp -o project_second
+./project_second dictionary.txt "hello, welcome, to, hanji"
+````
+````
+
+will output <br />
 
 `hello found` <br />
 `welcome found` <br />
