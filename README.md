@@ -57,30 +57,77 @@ There are different applications where you would know the items in advance and t
   You can therefore construct a perfect hash table of the filenames and burn the hash table along with the files onto the disc.
 - Another example is place names for a GPS device. Names of cities, towns, roads, etc. will not change often.
   Therefore, you can construct a perfect hash table to store these place names. Whenever the GPS device is updated, a new hash table will have to be constructed.
-
+  
 # Dictionary Class
 
-This project requires writing a hash table class called "Dictionary", which implements the following methods:
-- A constructor that takes the name of a file and a primary hash table size. This constructor uses the information in the file to construct the hash table using the
-perfect hashing scheme described above. <br /> This constructor cannot begin constructing secondary hash tables until all of the data have been read in.
-Therefore, construction of the hash table takes two passes. The first pass reads in each word from the file and figures out where it belongs in the primary hash table.
-The second pass looks at each slot in the primary hash table and creates a secondary hash table for each slot where this is needed.
-While constructing the hash table, this constructor prints out the following statistics:
+The `Dictionary` class implements a perfect hashing scheme to manage a hash table that stores a large number of words efficiently. This class includes methods for constructing the hash table from a file, querying the table, and writing/reading the table to/from a file.
 
-   - A dump of the hash function used
-   - Number of words read in
-   - Primary hash table size
-   - Maximum number of collisions in a slot of the primary hash table
-   - For each i between 0 and 20 (inclusive), the number of primary hash table slots that have i collisions
-   - All the words in the primary hash table slot that has the largest number of collisions. If there is more than one such slot, pick one arbitrarily
-   - For each j between 1 and 20 (inclusive), the number of secondary hash tables that tried j hash functions to find a hash function that did not result in any collisions for the secondary hash table. Only the cases where at least 2 words hashed to the same primary hash table slot are included (i.e. primary hash table slots with no collisions are excluded from the calculations)
-   - The average number of hash functions tried per slot of the primary hash table that had at least 2 items (i.e. primary hash table slots with no collisions are excluded from the calculations)
+### Methods
 
-- A `find()` method to query the hash table for the string word and return true if it is present in the hash table or return false otherwise.
-- A `writeToFile()` method that stores the entire dictionary class object in a file with the given filename using C++'s `write()` function from the `fstream` library.
-  Note that `write()` writes the entire hash table to a file in one step. The write() method also recursively follows all references in an object and write the objects that are referenced as well. This method has O(1) time complexity.
-- A `readFromFile()` method that reads an entire dictionary class object from the file with the given filename using C++’s `read()` function from the `fstream` library.
-  Note that `readFromFile()` is a static method because you do not have dictionary object until you create one from a text file. Thus, `readFromFile()` is invoked using the dictionary class name (i.e Dictionary::readFromFile()).
+- **Constructor**:
+  - `Dictionary(string fname, int tsize)`: 
+    - This constructor takes the name of a file and the primary hash table size as parameters.
+    - It reads the words from the file to construct the hash table using the perfect hashing scheme.
+    - Construction involves two passes:
+      1. The first pass reads each word from the file and determines its slot in the primary hash table.
+      2. The second pass creates secondary hash tables for slots in the primary table where needed.
+    - While constructing the hash table, the following statistics are printed:
+      - A dump of the hash function used
+      - Number of words read
+      - Primary hash table size
+      - Maximum number of collisions in a slot of the primary hash table
+      - For each i between 0 and 20 (inclusive), the number of primary hash table slots with i collisions
+      - All the words in the primary hash table slot with the largest number of collisions (if multiple, one is chosen arbitrarily)
+      - For each j between 1 and 20 (inclusive), the number of secondary hash tables that tried j hash functions to avoid collisions (excluding slots with no collisions)
+      - The average number of hash functions tried per slot of the primary hash table with at least 2 items (excluding slots with no collisions)
+
+- **find()**:
+  - `bool find(string word)`: 
+    - Queries the hash table for the given word.
+    - Returns `true` if the word is present in the hash table, `false` otherwise.
+
+- **writeToFile()**:
+  - `void writeToFile(string fName)`:
+    - Writes the entire dictionary object to a file using C++'s `write()` function from the `fstream` library.
+    - The `write()` method writes the entire hash table to the file in one step, including all referenced objects.
+    - This method has O(1) time complexity.
+
+- **readFromFile()**:
+  - `static Dictionary readFromFile(string fName)`:
+    - Reads an entire dictionary object from a file using C++'s `read()` function from the `fstream` library.
+    - This is a static method invoked using the `Dictionary` class name (i.e., `Dictionary::readFromFile()`).
+
+### Class Structure
+
+- **PrimarySlot Class**:
+  - Represents each slot of the primary hash table.
+  - Attributes:
+    - `Hash24 HashForSecondaryTable`: Hash function used for the secondary hash table.
+    - `vector<string> wordsInPrimarySlot`: Words that collide in this primary slot.
+    - `vector<string> secondaryTable`: Secondary hash table.
+    - `int secondaryTableSize`: Size of the secondary hash table.
+    - `int hashAttempts`: Number of hash functions attempted to create a collision-free secondary table.
+  - Constructor initializes an empty `PrimarySlot`.
+
+- **Dictionary Class**:
+  - Manages the primary and secondary hash tables.
+  - Attributes:
+    - `int wordsReadIn`: Number of words read from the input file.
+    - `int primaryTableSize`: Size of the primary hash table.
+    - `Hash24 HashForPrimaryTable`: Hash function for the primary hash table.
+    - `vector<PrimarySlot> primaryTable`: Primary hash table.
+    - `int maxCollisions`: Maximum number of collisions in any primary slot.
+    - `vector<string> slotMaxCollisions`: Words in the primary slot with the most collisions.
+    - `int primarySlotsOfWords[21]`: Slots categorized by the number of words they contain.
+    - `int attemptsHashForSecondaryTable[21]`: Tracks hash attempts for secondary tables.
+
+### Implementation Details
+
+- The `Dictionary` class uses a two-pass construction process to ensure a perfect hashing scheme.
+- The `find()` method allows efficient querying of the hash table.
+- The `writeToFile()` and `readFromFile()` methods handle serialization and deserialization of the entire dictionary object, ensuring quick and efficient storage and retrieval.
+
+This detailed structure ensures that the `Dictionary` class manages hash tables efficiently, supports perfect hashing, and provides robust data handling capabilities for large datasets.
 
 # Tools and Concepts
 - Languages: C++
