@@ -100,13 +100,20 @@ g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first
 - Note: replace `[words text file]` with one of the provided words dataset text files (i.e. dataset_11.txt or dataset_11.txt or dataset_11.txt)
         or you can also test your own words dataset text file following the same format
 
-- Note: the `{ g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first }` command compiles the Dictionary.cpp, project_first.cpp, and Hash24.cpp files,
+- Note: the `g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first` command compiles the Dictionary.cpp, project_first.cpp, and Hash24.cpp files,
         producing a project_first executable file
 
 - Note: the `dictionary.txt` filename passed via argv[2] generates a text file that stores the entire dictionary
 
 Example: <br />
-The command `if ($?) { g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first } ; if ($?) { .\project_first dataset_1000 dictionary.txt }` will output: <br />
+The command 
+
+```sh
+g++ Dictionary.cpp project_first.cpp Hash24.cpp -o project_first
+./project_first dataset_1000 dictionary.txt dictionary.txt
+````
+
+will output: <br />
 
 `*** Hash24 dump ***` <br />
 `prime1 = 16890581` <br />
