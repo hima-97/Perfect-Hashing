@@ -47,7 +47,7 @@ Applications include:
 ## Dictionary Class
 
 The `Dictionary` class implements a perfect hashing scheme to manage a large number of words efficiently.
-It includes methods for constructing, querying, and serializing the hash table.
+<br>It includes methods for constructing, querying, and serializing the hash table.
 
 ### Methods
 
