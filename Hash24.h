@@ -12,11 +12,17 @@
 using namespace std;
 
 /*
-The 24 in Hash24 indicates that the methods in the class work with values as large as 224 which is approximately 16 million.
-This is more than large enough for the purposes of this project. To use the Hash24 class, simply create a Hash24 object
-and then use it to invoke the universal hash function. The Hash24 object “remembers” the randomly chosen a, b and c used in the universal hash
-function. Therefore, you can store the hash object, retrieve it later, and use it to compute the same hash function.
+The "24" in Hash24 indicates that the methods in this class work with values up to 2^24, which is approximately 16 million.
+This range is more than sufficient for the purposes of this project. 
+
+To use the Hash24 class:
+1. Create a Hash24 object.
+2. Use the object to invoke the universal hash function.
+
+The Hash24 object stores the randomly chosen parameters a, b, and c used in the universal hash function. 
+As a result, you can save the hash object, retrieve it later, and use it to compute the same hash function consistently.
 */
+
 
 // Class used to perform the universal hash function:
 class Hash24
